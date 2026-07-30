@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MediPredict AI - Disease Prediction System{% endblock %}</title>
+
+    <!-- Apply saved dark-mode preference immediately, before first paint -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem("medipredict-theme");
+            if (savedTheme === "dark") {
+                document.documentElement.setAttribute("data-theme", "dark");
+            }
+        })();
+    </script>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+                <i class="bi bi-heart-pulse-fill me-2"></i>MediPredict<span class="text-gradient">AI</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}"><i class="bi bi-house-door me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('dashboard') }}"><i class="bi bi-bar-chart-line me-1"></i>Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('history') }}"><i class="bi bi-clock-history me-1"></i>History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}"><i class="bi bi-info-circle me-1"></i>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}"><i class="bi bi-envelope me-1"></i>Contact</a></li>
+                    <li class="nav-item ms-lg-1">
+                        <button class="btn btn-dark-toggle" id="darkModeToggle" type="button" title="Toggle dark mode">
+                            <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+                        </button>
+                    </li>
+                    {% if session.get('user_id') %}
+                    <li class="nav-item ms-lg-1 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle me-1"></i>{{ session.get('username') }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="{{ url_for('logout') }}"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('signup') }}"><i class="bi bi-person-plus me-1"></i>Sign Up</a></li>
+                    {% endif %}
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-predict-nav" href="{{ url_for('predict') }}">
+                            <i class="bi bi-clipboard2-pulse me-1"></i>Predict Disease
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== FLASH MESSAGES (rendered as toasts via JS) ==================== -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div id="flashMessages" class="d-none">
+                {% for message in messages %}
+                    <div class="flash-message" data-type="warning">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- ==================== PAGE CONTENT ==================== -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="custom-footer">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-heart-pulse-fill me-2"></i>MediPredict AI</h5>
+                    <p class="text-light opacity-75">
+                        An AI-powered educational platform that predicts probable diseases from
+                        symptoms and provides healthcare guidance using Machine Learning.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('predict') }}">Predict Disease</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="fw-bold mb-3">Technology</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><i class="bi bi-dot"></i>Python & Flask</li>
+                        <li><i class="bi bi-dot"></i>Scikit-learn</li>
+                        <li><i class="bi bi-dot"></i>Bootstrap 5</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="fw-bold mb-3">Disclaimer</h6>
+                    <p class="text-light opacity-75 small">
+                        This application is developed for educational purposes only. It is not intended
+                        to replace professional medical advice, diagnosis, or treatment.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-25 mt-4 mb-3">
+            <p class="text-center text-light opacity-50 small mb-0">
+                &copy; 2026 MediPredict AI &mdash; Final Year Academic Project. Built for learning, not diagnosis.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "results": {
+    "Random Forest": {
+      "train_accuracy": 0.9948,
+      "test_accuracy": 0.8373,
+      "precision": 0.8534,
+      "recall": 0.8373,
+      "f1_score": 0.833
+    },
+    "Decision Tree": {
+      "train_accuracy": 0.4173,
+      "test_accuracy": 0.294,
+      "precision": 0.365,
+      "recall": 0.294,
+      "f1_score": 0.3077
+    },
+    "Logistic Regression": {
+      "train_accuracy": 0.9476,
+      "test_accuracy": 0.8667,
+      "precision": 0.8842,
+      "recall": 0.8667,
+      "f1_score": 0.8639
+    }
+  },
+  "best_model": "Logistic Regression",
+  "num_diseases": 504,
+  "num_symptoms": 178,
+  "train_size": 10080,
+  "test_size": 2520
+}

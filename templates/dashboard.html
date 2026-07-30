@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - MediPredict AI{% endblock %}
+
+{% block content %}
+
+<section class="predict-hero text-center" style="padding-bottom: 6rem;">
+    <div class="container">
+        <span class="hero-badge mb-3"><i class="bi bi-bar-chart-line me-2"></i>Analytics</span>
+        <h1 class="mt-4 mb-3 fw-bold">Prediction Dashboard</h1>
+        <p class="hero-subtitle mx-auto">
+            An overview of all predictions made using MediPredict AI so far.
+        </p>
+    </div>
+</section>
+
+<div class="container" style="margin-top: -4rem; position: relative; z-index: 5;">
+
+    <!-- ==================== STAT CARDS ==================== -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="feature-card text-center">
+                <div class="feature-icon-box mx-auto"><i class="bi bi-clipboard2-data"></i></div>
+                <h2 class="fw-bold mt-2 mb-0">{{ stats.total }}</h2>
+                <p class="text-muted mb-0">Total Predictions</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card text-center">
+                <div class="feature-icon-box mx-auto"><i class="bi bi-virus"></i></div>
+                <h2 class="fw-bold mt-2 mb-0">{{ stats.disease_distribution|length }}</h2>
+                <p class="text-muted mb-0">Unique Diseases Predicted</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card text-center">
+                <div class="feature-icon-box mx-auto"><i class="bi bi-calendar-check"></i></div>
+                <h2 class="fw-bold mt-2 mb-0">{{ stats.daily_counts|length }}</h2>
+                <p class="text-muted mb-0">Active Days (Last 7)</p>
+            </div>
+        </div>
+    </div>
+
+    {% if stats.total == 0 %}
+    <!-- ==================== EMPTY STATE ==================== -->
+    <div class="result-section-card text-center py-5">
+        <i class="bi bi-inboxes text-muted" style="font-size: 3rem;"></i>
+        <h5 class="mt-3">No Predictions Yet</h5>
+        <p class="text-muted">Run a prediction to start seeing analytics here.</p>
+        <a href="{{ url_for('predict') }}" class="btn btn-predict-nav mt-2">
+            <i class="bi bi-clipboard2-pulse me-2"></i>Make a Prediction
+        </a>
+    </div>
+    {% else %}
+
+    <!-- ==================== CHARTS ==================== -->
+    <div class="row g-4 mb-4">
+        <div class="col-lg-6">
+            <div class="result-section-card">
+                <h5><i class="bi bi-pie-chart me-2 text-primary"></i>Disease Distribution</h5>
+                <div class="mt-3" style="position: relative; height: 300px;">
+                    <canvas id="diseasePieChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="result-section-card">
+                <h5><i class="bi bi-bar-chart me-2 text-primary"></i>Predictions Per Day (Last 7)</h5>
+                <div class="mt-3" style="position: relative; height: 300px;">
+                    <canvas id="dailyBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== RECENT PREDICTIONS ==================== -->
+    <div class="result-section-card mb-5">
+        <div class="d-flex justify-content-between align-items-center">
+            <h5 class="mb-0"><i class="bi bi-clock-history me-2 text-primary"></i>Recent Predictions</h5>
+            <a href="{{ url_for('history') }}" class="btn btn-sm btn-outline-dark rounded-pill">View Full History</a>
+        </div>
+        <div class="table-responsive mt-3">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Predicted Disease</th>
+                        <th>Confidence</th>
+                        <th>Risk</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in recent %}
+                    <tr>
+                        <td>{{ row.patient_name }}</td>
+                        <td>{{ row.age }}</td>
+                        <td>{{ row.gender }}</td>
+                        <td class="fw-semibold">{{ row.disease }}</td>
+                        <td>{{ row.confidence }}%</td>
+                        <td><span class="risk-badge risk-{{ row.risk_level|lower }}">{{ row.risk_level }}</span></td>
+                        <td class="text-muted small">{{ row.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+{% if stats.total > 0 %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.3/chart.umd.min.js"></script>
+<script>
+    // Data injected from the server (Jinja) into JS variables for Chart.js
+    const diseaseLabels = {{ stats.disease_distribution | map(attribute='disease') | list | tojson }};
+    const diseaseCounts = {{ stats.disease_distribution | map(attribute='count') | list | tojson }};
+    const dailyLabels = {{ stats.daily_counts | map(attribute='day') | list | tojson }};
+    const dailyCounts = {{ stats.daily_counts | map(attribute='count') | list | tojson }};
+
+    const chartColors = [
+        '#2563eb', '#0d9488', '#7c3aed', '#dc2626', '#d97706', '#16a34a',
+        '#0891b2', '#db2777', '#65a30d', '#9333ea', '#0284c7', '#ea580c'
+    ];
+
+    new Chart(document.getElementById('diseasePieChart'), {
+        type: 'pie',
+        data: {
+            labels: diseaseLabels,
+            datasets: [{
+                data: diseaseCounts,
+                backgroundColor: chartColors,
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } }
+        }
+    });
+
+    new Chart(document.getElementById('dailyBarChart'), {
+        type: 'bar',
+        data: {
+            labels: dailyLabels,
+            datasets: [{
+                label: 'Predictions',
+                data: dailyCounts,
+                backgroundColor: '#2563eb',
+                borderRadius: 6,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+        }
+    });
+</script>
+{% endif %}
+{% endblock %}

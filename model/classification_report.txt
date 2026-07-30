@@ -1,0 +1,512 @@
+Best Model: Logistic Regression
+
+                                        precision    recall  f1-score   support
+
+                              ACL Tear       0.80      0.80      0.80         5
+                                  ADHD       0.83      1.00      0.91         5
+                                   ALS       1.00      0.80      0.89         5
+                             Achalasia       0.75      0.60      0.67         5
+               Achilles Tendon Rupture       1.00      1.00      1.00         5
+                                  Acne       1.00      0.60      0.75         5
+                            Acromegaly       1.00      1.00      1.00         5
+                     Actinic Keratosis       0.80      0.80      0.80         5
+                      Acute Bronchitis       1.00      1.00      1.00         5
+                   Acute Kidney Injury       1.00      1.00      1.00         5
+          Acute Lymphoblastic Leukemia       1.00      1.00      1.00         5
+                Acute Myeloid Leukemia       1.00      1.00      1.00         5
+                    Acute Pancreatitis       0.83      1.00      0.91         5
+   Acute Respiratory Distress Syndrome       1.00      1.00      1.00         5
+                     Addison's Disease       1.00      1.00      1.00         5
+                           Adenoiditis       0.62      1.00      0.77         5
+                   Adjustment Disorder       1.00      0.80      0.89         5
+                  Alcohol Use Disorder       1.00      0.80      0.89         5
+                     Allergic Rhinitis       1.00      0.80      0.89         5
+                       Alopecia Areata       1.00      0.80      0.89         5
+                   Alzheimer's Disease       0.83      1.00      0.91         5
+                             Amblyopia       0.80      0.80      0.80         5
+                            Amoebiasis       1.00      1.00      1.00         5
+                          Anal Fissure       0.80      0.80      0.80         5
+                          Anal Fistula       1.00      1.00      1.00         5
+                           Anaphylaxis       1.00      0.60      0.75         5
+                       Angina Pectoris       1.00      0.80      0.89         5
+                            Angioedema       0.83      1.00      0.91         5
+                Ankylosing Spondylitis       1.00      0.80      0.89         5
+                      Anorexia Nervosa       0.83      1.00      0.91         5
+                               Anthrax       0.33      0.80      0.47         5
+                       Aortic Aneurysm       0.80      0.80      0.80         5
+                     Aortic Dissection       0.75      0.60      0.67         5
+                  Aortic Valve Disease       0.33      0.20      0.25         5
+                       Aplastic Anemia       1.00      0.80      0.89         5
+                          Appendicitis       1.00      1.00      1.00         5
+                            Asbestosis       1.00      1.00      1.00         5
+                  Aspiration Pneumonia       0.83      1.00      0.91         5
+                           Astigmatism       0.83      1.00      0.91         5
+                           Atelectasis       1.00      0.80      0.89         5
+                       Atherosclerosis       1.00      1.00      1.00         5
+                     Atopic Dermatitis       0.80      0.80      0.80         5
+                   Atrial Fibrillation       0.80      0.80      0.80         5
+              Autism Spectrum Disorder       1.00      1.00      1.00         5
+                  Autoimmune Hepatitis       0.71      1.00      0.83         5
+                  Autonomic Neuropathy       1.00      1.00      1.00         5
+                  Bacterial Meningitis       1.00      1.00      1.00         5
+                   Bacterial Vaginosis       1.00      0.80      0.89         5
+                   Barrett's Esophagus       0.71      1.00      0.83         5
+                  Basal Cell Carcinoma       1.00      1.00      1.00         5
+                          Bell's Palsy       0.80      0.80      0.80         5
+          Benign Prostatic Hyperplasia       0.83      1.00      0.91         5
+                              Beriberi       0.60      0.60      0.60         5
+                         Biliary Colic       1.00      1.00      1.00         5
+                 Binge Eating Disorder       1.00      1.00      1.00         5
+                      Bipolar Disorder       1.00      1.00      1.00         5
+                        Bladder Cancer       1.00      0.80      0.89         5
+                     Bladder Infection       0.83      1.00      0.91         5
+                           Blepharitis       1.00      1.00      1.00         5
+              Body Dysmorphic Disorder       0.80      0.80      0.80         5
+                           Bone Cancer       1.00      0.80      0.89         5
+                         Bone Fracture       0.75      0.60      0.67         5
+       Borderline Personality Disorder       0.80      0.80      0.80         5
+                              Botulism       1.00      0.60      0.75         5
+                           Bradycardia       1.00      1.00      1.00         5
+                           Brain Tumor       1.00      1.00      1.00         5
+                         Breast Cancer       0.60      0.60      0.60         5
+                      Bronchial Asthma       1.00      0.80      0.89         5
+                        Bronchiectasis       1.00      1.00      1.00         5
+                         Bronchiolitis       0.83      1.00      0.91         5
+                           Brucellosis       0.75      0.60      0.67         5
+                               Bruxism       1.00      0.80      0.89         5
+                     Buerger's Disease       0.67      0.40      0.50         5
+                       Bulimia Nervosa       0.83      1.00      0.91         5
+                      Burnout Syndrome       0.71      1.00      0.83         5
+                              Bursitis       0.80      0.80      0.80         5
+                            Byssinosis       0.83      1.00      0.91         5
+                                  COPD       0.60      0.60      0.60         5
+                              COVID-19       1.00      0.80      0.89         5
+                          Canker Sores       0.67      0.80      0.73         5
+                    Cardiac Arrhythmia       1.00      1.00      1.00         5
+                     Cardiac Tamponade       0.80      0.80      0.80         5
+                     Cardiogenic Shock       0.80      0.80      0.80         5
+                        Cardiomyopathy       0.71      1.00      0.83         5
+                Carpal Tunnel Syndrome       0.71      1.00      0.83         5
+                              Cataract       0.75      0.60      0.67         5
+                        Celiac Disease       0.71      1.00      0.83         5
+                            Cellulitis       1.00      1.00      1.00         5
+                     Cerebral Aneurysm       1.00      1.00      1.00         5
+                        Cerebral Palsy       1.00      1.00      1.00         5
+                       Cervical Cancer       1.00      0.80      0.89         5
+                    Cervical Dysplasia       0.80      0.80      0.80         5
+                  Cervical Spondylosis       1.00      1.00      1.00         5
+                             Chalazion       1.00      0.60      0.75         5
+           Charcot-Marie-Tooth Disease       0.83      1.00      0.91         5
+                           Chicken Pox       0.62      1.00      0.77         5
+                           Chikungunya       0.50      0.40      0.44         5
+                      Childhood Eczema       0.71      1.00      0.83         5
+                             Chlamydia       0.83      1.00      0.91         5
+                         Cholecystitis       1.00      1.00      1.00         5
+                               Cholera       0.80      0.80      0.80         5
+                         Cholesteatoma       1.00      1.00      1.00         5
+                    Chronic Bronchitis       1.00      1.00      1.00         5
+                  Chronic Constipation       0.75      0.60      0.67         5
+                Chronic Daily Headache       1.00      1.00      1.00         5
+              Chronic Fatigue Syndrome       1.00      1.00      1.00         5
+         Chronic Granulomatous Disease       0.75      0.60      0.67         5
+                Chronic Kidney Disease       0.75      0.60      0.67         5
+          Chronic Lymphocytic Leukemia       0.50      0.60      0.55         5
+              Chronic Myeloid Leukemia       0.80      0.80      0.80         5
+                  Chronic Pancreatitis       0.75      0.60      0.67         5
+                     Chronic Sinusitis       1.00      1.00      1.00         5
+                     Chronic Urticaria       1.00      1.00      1.00         5
+                             Cirrhosis       1.00      1.00      1.00         5
+                  Cleft Lip and Palate       0.40      0.40      0.40         5
+                      Cluster Headache       1.00      0.80      0.89         5
+                            Cold Sores       0.83      1.00      0.91         5
+                     Colorectal Cancer       1.00      1.00      1.00         5
+                           Common Cold       1.00      1.00      1.00         5
+      Common Variable Immunodeficiency       0.83      1.00      0.91         5
+        Complex Regional Pain Syndrome       1.00      1.00      1.00         5
+                            Concussion       1.00      0.80      0.89         5
+                      Conduct Disorder       1.00      1.00      1.00         5
+               Conductive Hearing Loss       0.83      1.00      0.91         5
+              Congenital Heart Disease       1.00      1.00      1.00         5
+             Congenital Hypothyroidism       1.00      1.00      1.00         5
+                        Conjunctivitis       0.83      1.00      0.91         5
+                    Contact Dermatitis       0.80      0.80      0.80         5
+                         Corneal Ulcer       0.80      0.80      0.80         5
+               Coronary Artery Disease       0.80      0.80      0.80         5
+                       Costochondritis       1.00      0.80      0.89         5
+                       Crohn's Disease       1.00      0.40      0.57         5
+                                 Croup       0.80      0.80      0.80         5
+                    Cushing's Syndrome       0.83      1.00      0.91         5
+                       Cutaneous Lupus       1.00      1.00      1.00         5
+                       Cystic Fibrosis       0.71      1.00      0.83         5
+                  Deep Vein Thrombosis       0.80      0.80      0.80         5
+                          Dengue Fever       1.00      0.60      0.75         5
+                         Dental Caries       0.67      0.40      0.50         5
+                       Deviated Septum       1.00      0.80      0.89         5
+                    Diabetes Insipidus       0.71      1.00      0.83         5
+                       Diabetes Type 1       0.83      1.00      0.91         5
+                       Diabetes Type 2       1.00      0.80      0.89         5
+                 Diabetic Ketoacidosis       0.83      1.00      0.91         5
+                  Diabetic Retinopathy       0.83      1.00      0.91         5
+                           Diaper Rash       1.00      1.00      1.00         5
+                Dilated Cardiomyopathy       0.62      1.00      0.77         5
+                            Diphtheria       0.71      1.00      0.83         5
+Disseminated Intravascular Coagulation       0.67      0.80      0.73         5
+                 Dissociative Disorder       1.00      1.00      1.00         5
+                        Diverticulitis       1.00      0.80      0.89         5
+                        Diverticulosis       1.00      1.00      1.00         5
+                         Down Syndrome       1.00      0.80      0.89         5
+                          Drug Allergy       1.00      1.00      1.00         5
+                      Dry Eye Syndrome       1.00      0.80      0.89         5
+               Dupuytren's Contracture       0.67      0.80      0.73         5
+                             Dysentery       1.00      0.20      0.33         5
+                    Dyshidrotic Eczema       1.00      0.80      0.89         5
+                          Dysmenorrhea       0.83      1.00      0.91         5
+                   Ebola Virus Disease       0.83      1.00      0.91         5
+                     Ectopic Pregnancy       0.83      1.00      0.91         5
+                             Emphysema       1.00      0.80      0.89         5
+                               Empyema       1.00      1.00      1.00         5
+                          Encephalitis       1.00      1.00      1.00         5
+                          Endocarditis       1.00      1.00      1.00         5
+                    Endometrial Cancer       1.00      1.00      1.00         5
+                         Endometriosis       1.00      1.00      1.00         5
+              Eosinophilic Esophagitis       1.00      0.80      0.89         5
+                          Epididymitis       1.00      0.60      0.75         5
+                     Epidural Hematoma       1.00      1.00      1.00         5
+                              Epilepsy       1.00      1.00      1.00         5
+                             Epistaxis       0.80      0.80      0.80         5
+                  Erectile Dysfunction       0.67      0.80      0.73         5
+                      Erythema Nodosum       0.80      0.80      0.80         5
+                     Esophageal Cancer       1.00      1.00      1.00         5
+                           Esophagitis       1.00      1.00      1.00         5
+                      Essential Tremor       1.00      1.00      1.00         5
+           Eustachian Tube Dysfunction       1.00      0.60      0.75         5
+                     Failure to Thrive       1.00      0.80      0.89         5
+                         Farmer's Lung       0.71      1.00      0.83         5
+                   Fatty Liver Disease       1.00      0.80      0.89         5
+                       Febrile Seizure       1.00      1.00      1.00         5
+                    Female Infertility       1.00      0.60      0.75         5
+            Fibrocystic Breast Disease       1.00      1.00      1.00         5
+                          Fibromyalgia       1.00      1.00      1.00         5
+                            Filariasis       1.00      0.80      0.89         5
+                          Folliculitis       1.00      1.00      1.00         5
+                          Food Allergy       0.80      0.80      0.80         5
+                        Food Poisoning       1.00      1.00      1.00         5
+                       Frozen Shoulder       0.67      0.40      0.50         5
+                                  GERD       1.00      0.60      0.75         5
+                            Gallstones       1.00      1.00      1.00         5
+                         Ganglion Cyst       0.44      0.80      0.57         5
+                             Gastritis       1.00      1.00      1.00         5
+                       Gastroenteritis       0.80      0.80      0.80         5
+          Generalized Anxiety Disorder       0.50      0.40      0.44         5
+                        Genital Herpes       1.00      1.00      1.00         5
+                  Gestational Diabetes       1.00      0.80      0.89         5
+              Gestational Hypertension       0.83      1.00      0.91         5
+     Gestational Trophoblastic Disease       1.00      1.00      1.00         5
+                            Giardiasis       1.00      0.80      0.89         5
+                            Gingivitis       1.00      1.00      1.00         5
+                              Glaucoma       1.00      0.80      0.89         5
+                    Glomerulonephritis       1.00      1.00      1.00         5
+                                Goiter       1.00      0.80      0.89         5
+                             Gonorrhea       0.71      1.00      0.83         5
+                                  Gout       0.60      0.60      0.60         5
+                       Graves' Disease       1.00      1.00      1.00         5
+               Guillain-Barre Syndrome       1.00      1.00      1.00         5
+                              HIV/AIDS       0.75      0.60      0.67         5
+                         HPV Infection       0.83      1.00      0.91         5
+                             Halitosis       0.57      0.80      0.67         5
+           Hand Foot and Mouth Disease       1.00      1.00      1.00         5
+               Hashimoto's Thyroiditis       1.00      0.80      0.89         5
+                             Head Lice       1.00      1.00      1.00         5
+                         Heart Failure       1.00      0.80      0.89         5
+                       Hemochromatosis       0.83      1.00      0.91         5
+                            Hemophilia       1.00      1.00      1.00         5
+                    Hemorrhagic Stroke       0.83      1.00      0.91         5
+                           Hemorrhoids       1.00      1.00      1.00         5
+                           Hepatitis A       0.80      0.80      0.80         5
+                           Hepatitis B       1.00      1.00      1.00         5
+                           Hepatitis C       0.83      1.00      0.91         5
+                        Herniated Disc       1.00      1.00      1.00         5
+                         Hiatal Hernia       1.00      1.00      1.00         5
+              Hidradenitis Suppurativa       0.83      1.00      0.91         5
+                    Hodgkin's Lymphoma       0.80      0.80      0.80         5
+                    Hookworm Infection       0.83      1.00      0.91         5
+                      Horseshoe Kidney       0.50      0.60      0.55         5
+                  Huntington's Disease       1.00      1.00      1.00         5
+                             Hydrocele       1.00      0.80      0.89         5
+                         Hydrocephalus       1.00      1.00      1.00         5
+                    Hyperaldosteronism       1.00      0.40      0.57         5
+                Hyperemesis Gravidarum       1.00      1.00      1.00         5
+                         Hyperhidrosis       0.83      1.00      0.91         5
+                        Hyperlipidemia       0.83      1.00      0.91         5
+                             Hyperopia       0.80      0.80      0.80         5
+                   Hyperparathyroidism       1.00      0.80      0.89         5
+          Hypersensitivity Pneumonitis       1.00      1.00      1.00         5
+                          Hypertension       0.80      0.80      0.80         5
+                       Hyperthyroidism       1.00      1.00      1.00         5
+           Hypertrophic Cardiomyopathy       0.83      1.00      0.91         5
+                          Hypoglycemia       1.00      1.00      1.00         5
+                    Hypoparathyroidism       1.00      1.00      1.00         5
+                       Hypopituitarism       0.71      1.00      0.83         5
+                           Hypotension       1.00      1.00      1.00         5
+                        Hypothyroidism       0.83      1.00      0.91         5
+                            Ichthyosis       1.00      0.40      0.57         5
+                 Impacted Wisdom Tooth       1.00      0.80      0.89         5
+                              Impetigo       0.75      0.60      0.67         5
+                       Infantile Colic       0.67      0.40      0.50         5
+              Infectious Mononucleosis       0.80      0.80      0.80         5
+                             Influenza       1.00      1.00      1.00         5
+                  Insect Sting Allergy       1.00      1.00      1.00         5
+                              Insomnia       1.00      0.80      0.89         5
+                 Interstitial Cystitis       0.50      0.20      0.29         5
+                            Intertrigo       0.83      1.00      0.91         5
+                   Intestinal Ischemia       0.40      0.80      0.53         5
+                Intestinal Obstruction       1.00      0.80      0.89         5
+                       Intussusception       0.83      1.00      0.91         5
+                     Iodine Deficiency       1.00      0.80      0.89         5
+                       Iron Deficiency       1.00      1.00      1.00         5
+                Iron Deficiency Anemia       0.80      0.80      0.80         5
+              Irritable Bowel Syndrome       0.75      0.60      0.67         5
+                       Ischemic Stroke       0.57      0.80      0.67         5
+                      Kawasaki Disease       0.60      0.60      0.60         5
+                                Keloid       1.00      1.00      1.00         5
+                             Keratitis       0.60      0.60      0.60         5
+                     Keratosis Pilaris       0.67      0.80      0.73         5
+                         Kidney Cancer       0.83      1.00      0.91         5
+                         Kidney Stones       1.00      1.00      1.00         5
+                           Kleptomania       1.00      0.40      0.57         5
+                           Kwashiorkor       0.75      0.60      0.67         5
+                              Kyphosis       0.71      1.00      0.83         5
+                   Lactose Intolerance       0.83      1.00      0.91         5
+                      Laryngeal Cancer       1.00      0.80      0.89         5
+                            Laryngitis       0.83      1.00      0.91         5
+                         Latex Allergy       1.00      1.00      1.00         5
+                 Legionnaires' Disease       1.00      1.00      1.00         5
+                         Leptospirosis       1.00      1.00      1.00         5
+                              Leukemia       0.83      1.00      0.91         5
+                         Lichen Planus       0.83      1.00      0.91         5
+                           Listeriosis       0.67      0.40      0.50         5
+                         Liver Failure       1.00      1.00      1.00         5
+                      Long QT Syndrome       1.00      0.80      0.89         5
+                              Lordosis       0.75      0.60      0.67         5
+                          Lung Abscess       1.00      1.00      1.00         5
+                           Lung Cancer       1.00      0.80      0.89         5
+                                 Lupus       0.71      1.00      0.83         5
+                          Lyme Disease       1.00      0.60      0.75         5
+                  Macular Degeneration       1.00      0.80      0.89         5
+             Major Depressive Disorder       1.00      1.00      1.00         5
+                Malabsorption Syndrome       1.00      1.00      1.00         5
+                               Malaria       0.80      0.80      0.80         5
+                          Malnutrition       1.00      0.60      0.75         5
+                              Marasmus       0.67      0.80      0.73         5
+                              Mastitis       1.00      1.00      1.00         5
+                           Mastoiditis       1.00      1.00      1.00         5
+                               Measles       1.00      1.00      1.00         5
+                              Melanoma       1.00      1.00      1.00         5
+                               Melasma       1.00      0.80      0.89         5
+                     Meniere's Disease       0.75      0.60      0.67         5
+                         Meniscus Tear       1.00      0.80      0.89         5
+                             Menopause       1.00      0.80      0.89         5
+                    Metabolic Syndrome       1.00      1.00      1.00         5
+                     Metastatic Cancer       0.80      0.80      0.80         5
+                              Migraine       1.00      1.00      1.00         5
+                  Mitral Valve Disease       0.71      1.00      0.83         5
+                 Mitral Valve Prolapse       0.40      0.40      0.40         5
+                      Multiple Myeloma       0.83      1.00      0.91         5
+                    Multiple Sclerosis       1.00      1.00      1.00         5
+                                 Mumps       1.00      1.00      1.00         5
+                    Muscular Dystrophy       1.00      0.80      0.89         5
+                     Myasthenia Gravis       1.00      1.00      1.00         5
+              Myelodysplastic Syndrome       0.71      1.00      0.83         5
+                 Myocardial Infarction       0.67      0.80      0.73         5
+                           Myocarditis       1.00      0.80      0.89         5
+                                Myopia       0.71      1.00      0.83         5
+                              Myositis       1.00      1.00      1.00         5
+                            Narcolepsy       1.00      1.00      1.00         5
+                          Nasal Polyps       0.71      1.00      0.83         5
+             Necrotizing Enterocolitis       1.00      0.60      0.75         5
+                    Nephrotic Syndrome       0.83      1.00      0.91         5
+                             Neuralgia       0.71      1.00      0.83         5
+                           Neutropenia       1.00      1.00      1.00         5
+                 Nipah Virus Infection       0.83      1.00      0.91         5
+                Non-Hodgkin's Lymphoma       1.00      0.80      0.89         5
+                       Nummular Eczema       1.00      1.00      1.00         5
+                               Obesity       1.00      1.00      1.00         5
+         Obsessive-Compulsive Disorder       1.00      0.80      0.89         5
+                        Optic Neuritis       0.57      0.80      0.67         5
+                           Oral Cancer       0.71      1.00      0.83         5
+                           Oral Thrush       0.67      0.80      0.73         5
+                        Osteoarthritis       1.00      1.00      1.00         5
+                         Osteomyelitis       1.00      0.60      0.75         5
+                          Osteoporosis       0.83      1.00      0.91         5
+                        Otitis Externa       1.00      0.80      0.89         5
+                          Otitis Media       1.00      1.00      1.00         5
+                        Ovarian Cancer       1.00      0.80      0.89         5
+                         Ovarian Cysts       0.62      1.00      0.77         5
+                    Overactive Bladder       1.00      1.00      1.00         5
+                                  PCOS       0.80      0.80      0.80         5
+                                  PTSD       0.71      1.00      0.83         5
+               Paget's Disease of Bone       1.00      1.00      1.00         5
+                     Pancreatic Cancer       1.00      1.00      1.00         5
+                        Panic Disorder       1.00      1.00      1.00         5
+                   Parkinson's Disease       1.00      0.80      0.89         5
+                              Pellagra       0.83      1.00      0.91         5
+           Pelvic Inflammatory Disease       1.00      1.00      1.00         5
+                             Pemphigus       0.80      0.80      0.80         5
+                  Peptic Ulcer Disease       1.00      1.00      1.00         5
+                    Perforated Eardrum       0.75      0.60      0.67         5
+                          Pericarditis       0.57      0.80      0.67         5
+                         Periodontitis       0.83      1.00      0.91         5
+                   Perioral Dermatitis       0.80      0.80      0.80         5
+             Peripheral Artery Disease       0.83      1.00      0.91         5
+                 Peripheral Neuropathy       1.00      0.80      0.89         5
+                           Peritonitis       1.00      1.00      1.00         5
+                           Pharyngitis       0.80      0.80      0.80         5
+                      Pheochromocytoma       0.83      1.00      0.91         5
+                              Phimosis       0.80      0.80      0.80         5
+                       Placenta Previa       1.00      0.60      0.75         5
+                                Plague       1.00      0.80      0.89         5
+                     Plantar Fasciitis       1.00      1.00      1.00         5
+                              Pleurisy       1.00      0.80      0.89         5
+                             Pneumonia       1.00      1.00      1.00         5
+                          Pneumothorax       1.00      0.80      0.89         5
+             Polycystic Kidney Disease       1.00      0.40      0.57         5
+                     Polycythemia Vera       1.00      0.80      0.89         5
+                Polymyalgia Rheumatica       0.71      1.00      0.83         5
+                Postherpetic Neuralgia       0.83      1.00      0.91         5
+                 Postpartum Depression       0.80      0.80      0.80         5
+                 Postpartum Hemorrhage       0.67      0.80      0.73         5
+                    Precocious Puberty       1.00      0.80      0.89         5
+                          Preeclampsia       1.00      0.80      0.89         5
+                 Premenstrual Syndrome       0.83      1.00      0.91         5
+                              Priapism       1.00      1.00      1.00         5
+           Primary Biliary Cholangitis       0.67      0.80      0.73         5
+                       Prostate Cancer       0.83      1.00      0.91         5
+                           Prostatitis       0.80      0.80      0.80         5
+                             Psoriasis       1.00      1.00      1.00         5
+                   Psoriatic Arthritis       0.75      0.60      0.67         5
+                                Ptosis       0.71      1.00      0.83         5
+                    Pulmonary Embolism       1.00      1.00      1.00         5
+                    Pulmonary Fibrosis       1.00      0.80      0.89         5
+                Pulmonary Hypertension       1.00      1.00      1.00         5
+                      Pyloric Stenosis       1.00      1.00      1.00         5
+                             Pyromania       0.80      0.80      0.80         5
+                               Q Fever       0.71      1.00      0.83         5
+                         RSV Infection       1.00      1.00      1.00         5
+                                Rabies       1.00      1.00      1.00         5
+                     Raynaud's Disease       1.00      0.40      0.57         5
+                       Rectal Prolapse       1.00      1.00      1.00         5
+                 Renal Artery Stenosis       0.75      0.60      0.67         5
+                           Renal Colic       0.71      1.00      0.83         5
+                 Restless Leg Syndrome       1.00      0.80      0.89         5
+            Restrictive Cardiomyopathy       1.00      0.80      0.89         5
+                    Retinal Detachment       1.00      1.00      1.00         5
+                  Retinitis Pigmentosa       0.62      1.00      0.77         5
+                       Reye's Syndrome       0.83      1.00      0.91         5
+               Rheumatic Heart Disease       1.00      0.80      0.89         5
+                  Rheumatoid Arthritis       0.83      1.00      0.91         5
+                               Rickets       1.00      1.00      1.00         5
+                               Rosacea       1.00      0.60      0.75         5
+                               Roseola       0.43      0.60      0.50         5
+                   Rotator Cuff Injury       1.00      0.80      0.89         5
+                               Rubella       1.00      1.00      1.00         5
+                 Salivary Gland Stones       0.00      0.00      0.00         5
+                           Sarcoidosis       1.00      1.00      1.00         5
+                               Scabies       0.83      1.00      0.91         5
+                         Scarlet Fever       1.00      1.00      1.00         5
+                       Schistosomiasis       1.00      0.80      0.89         5
+                         Schizophrenia       0.80      0.80      0.80         5
+                              Sciatica       1.00      1.00      1.00         5
+                             Scleritis       1.00      0.80      0.89         5
+                           Scleroderma       1.00      0.80      0.89         5
+                             Scoliosis       1.00      1.00      1.00         5
+                                Scurvy       1.00      1.00      1.00         5
+           Seasonal Affective Disorder       1.00      0.60      0.75         5
+                 Seborrheic Dermatitis       1.00      1.00      1.00         5
+            Sensorineural Hearing Loss       0.50      1.00      0.67         5
+                        Serum Sickness       1.00      1.00      1.00         5
+      Severe Combined Immunodeficiency       0.62      1.00      0.77         5
+                          Shin Splints       0.83      1.00      0.91         5
+                              Shingles       0.80      0.80      0.80         5
+                  Short Bowel Syndrome       0.67      0.40      0.50         5
+                   Sickle Cell Disease       1.00      1.00      1.00         5
+                             Silicosis       1.00      1.00      1.00         5
+                             Sinusitis       1.00      1.00      1.00         5
+                    Sjogren's Syndrome       1.00      1.00      1.00         5
+                          Skin Abscess       0.83      1.00      0.91         5
+                           Sleep Apnea       1.00      1.00      1.00         5
+               Social Anxiety Disorder       0.83      1.00      0.91         5
+              Somatic Symptom Disorder       0.83      1.00      0.91         5
+                       Specific Phobia       0.40      0.40      0.40         5
+                       Spinal Stenosis       0.80      0.80      0.80         5
+                     Spondylolisthesis       1.00      0.80      0.89         5
+                   Sprains and Strains       1.00      1.00      1.00         5
+               Squamous Cell Carcinoma       1.00      0.40      0.57         5
+                        Stomach Cancer       1.00      1.00      1.00         5
+                            Strabismus       1.00      0.40      0.57         5
+                       Stress Fracture       0.75      0.60      0.67         5
+                                  Stye       1.00      0.60      0.75         5
+                     Subdural Hematoma       0.83      1.00      0.91         5
+                Substance Use Disorder       1.00      1.00      1.00         5
+          Superficial Thrombophlebitis       0.60      0.60      0.60         5
+                              Syphilis       0.71      1.00      0.83         5
+                          TMJ Disorder       0.80      0.80      0.80         5
+                           Tachycardia       1.00      0.60      0.75         5
+              Takotsubo Cardiomyopathy       1.00      0.80      0.89         5
+                    Tapeworm Infection       0.80      0.80      0.80         5
+                            Tendinitis       0.60      0.60      0.60         5
+                      Tension Headache       1.00      1.00      1.00         5
+                    Testicular Torsion       1.00      1.00      1.00         5
+                               Tetanus       1.00      1.00      1.00         5
+                           Thalassemia       1.00      0.60      0.75         5
+                         Throat Cancer       0.75      0.60      0.67         5
+                      Thrombocytopenia       1.00      1.00      1.00         5
+                        Thyroid Cancer       0.83      1.00      0.91         5
+                       Thyroid Nodules       1.00      1.00      1.00         5
+                      Tinea (Ringworm)       1.00      1.00      1.00         5
+                              Tinnitus       1.00      0.80      0.89         5
+                           Tonsillitis       1.00      1.00      1.00         5
+                         Tooth Abscess       1.00      0.60      0.75         5
+                         Toxoplasmosis       1.00      0.80      0.89         5
+             Transient Ischemic Attack       1.00      1.00      1.00         5
+                Traumatic Brain Injury       0.83      1.00      0.91         5
+                           Trichinosis       1.00      0.80      0.89         5
+                      Trichotillomania       1.00      1.00      1.00         5
+                  Trigeminal Neuralgia       1.00      1.00      1.00         5
+                          Tuberculosis       1.00      0.80      0.89         5
+                         Typhoid Fever       0.71      1.00      0.83         5
+                    Ulcerative Colitis       0.60      0.60      0.60         5
+                  Urinary Incontinence       0.83      1.00      0.91         5
+               Urinary Tract Infection       1.00      1.00      1.00         5
+                             Urticaria       1.00      1.00      1.00         5
+                      Uterine Fibroids       0.67      0.80      0.73         5
+                      Uterine Prolapse       1.00      0.80      0.89         5
+                               Uveitis       0.80      0.80      0.80         5
+                             Vaginitis       1.00      1.00      1.00         5
+                            Varicocele       0.83      1.00      0.91         5
+                        Varicose Veins       1.00      0.80      0.89         5
+                     Vascular Dementia       0.71      1.00      0.83         5
+                            Vasculitis       0.50      0.80      0.62         5
+                               Vertigo       1.00      1.00      1.00         5
+                      Viral Meningitis       1.00      0.80      0.89         5
+                  Vitamin A Deficiency       0.62      1.00      0.77         5
+                Vitamin B12 Deficiency       1.00      0.60      0.75         5
+                  Vitamin D Deficiency       1.00      0.80      0.89         5
+                              Vitiligo       0.83      1.00      0.91         5
+                    Vocal Cord Nodules       1.00      0.80      0.89         5
+                              Volvulus       0.67      0.80      0.73         5
+                Von Willebrand Disease       0.71      1.00      0.83         5
+              Vulvovaginal Candidiasis       1.00      0.80      0.89         5
+         Waldenstrom Macroglobulinemia       1.00      0.80      0.89         5
+                                 Warts       1.00      1.00      1.00         5
+             Wernicke's Encephalopathy       1.00      1.00      1.00         5
+                              Whiplash       0.80      0.80      0.80         5
+                        Whooping Cough       1.00      1.00      1.00         5
+                      Wilson's Disease       0.80      0.80      0.80         5
+        Wolff-Parkinson-White Syndrome       0.80      0.80      0.80         5
+                          Yellow Fever       0.83      1.00      0.91         5
+                            Zika Virus       1.00      0.60      0.75         5
+                       Zinc Deficiency       0.83      1.00      0.91         5
+
+                              accuracy                           0.87      2520
+                             macro avg       0.88      0.87      0.86      2520
+                          weighted avg       0.88      0.87      0.86      2520

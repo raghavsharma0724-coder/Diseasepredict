@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}Your Result - MediPredict AI{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- ==================== RESULT HEADER ==================== -->
+    <div class="result-header mb-4 animate-fade-up">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+                <span class="hero-badge mb-3"><i class="bi bi-clipboard2-check me-2"></i>Prediction Result</span>
+                <h2 class="fw-bold mt-3 mb-2">{{ result.disease }}</h2>
+                <p class="mb-3 opacity-75">
+                    Based on {{ result.selected_symptoms|length }} symptom(s) you selected,
+                    for a {{ result.age }}-year-old {{ result.gender.lower() }}.
+                </p>
+                <div class="d-flex flex-wrap gap-3 align-items-center">
+                    {% if result.confidence is not none %}
+                    <span class="badge bg-light text-dark px-3 py-2">
+                        <i class="bi bi-graph-up me-1"></i>Confidence: {{ result.confidence }}%
+                    </span>
+                    {% endif %}
+                    <span class="risk-badge risk-{{ result.risk_level|lower }}">
+                        <i class="bi bi-shield-exclamation me-1"></i>{{ result.risk_level }} Risk
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <i class="bi bi-heart-pulse-fill" style="font-size: 7rem; opacity: 0.25;"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== YOUR SYMPTOMS ==================== -->
+    <div class="result-section-card mb-4 animate-fade-up">
+        <h5><i class="bi bi-check2-square me-2 text-primary"></i>Symptoms You Reported</h5>
+        <div class="mt-3">
+            {% for symptom in result.selected_symptoms %}
+                <span class="tech-badge">{{ symptom }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- ==================== DESCRIPTION ==================== -->
+        <div class="col-lg-12">
+            <div class="result-section-card animate-fade-up">
+                <h5><i class="bi bi-file-medical me-2 text-primary"></i>About This Condition</h5>
+                <p class="text-muted mb-0 mt-2">{{ result.description }}</p>
+            </div>
+        </div>
+
+        <!-- ==================== CAUSES ==================== -->
+        <div class="col-lg-6">
+            <div class="result-section-card animate-fade-up delay-1">
+                <h5><i class="bi bi-search-heart me-2 text-primary"></i>Possible Causes</h5>
+                <ul class="result-list list-unstyled mt-3 mb-0">
+                    {% for cause in result.causes %}
+                    <li><i class="bi bi-dot text-primary"></i>{{ cause }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== PRECAUTIONS ==================== -->
+        <div class="col-lg-6">
+            <div class="result-section-card animate-fade-up delay-2">
+                <h5><i class="bi bi-shield-check me-2 text-primary"></i>Precautions</h5>
+                <ul class="result-list list-unstyled mt-3 mb-0">
+                    {% for item in result.precautions %}
+                    <li><i class="bi bi-check2 text-success me-1"></i>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== LIFESTYLE TIPS ==================== -->
+        <div class="col-lg-6">
+            <div class="result-section-card animate-fade-up">
+                <h5><i class="bi bi-activity me-2 text-primary"></i>Lifestyle Tips</h5>
+                <ul class="result-list list-unstyled mt-3 mb-0">
+                    {% for tip in result.lifestyle_tips %}
+                    <li><i class="bi bi-arrow-right-short text-primary"></i>{{ tip }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== DIET RECOMMENDATION ==================== -->
+        <div class="col-lg-6">
+            <div class="result-section-card animate-fade-up delay-1">
+                <h5><i class="bi bi-egg-fried me-2 text-primary"></i>Diet Recommendation</h5>
+                <ul class="result-list list-unstyled mt-3 mb-0">
+                    {% for item in result.diet %}
+                    <li><i class="bi bi-check2 text-success me-1"></i>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== EXERCISE RECOMMENDATION ==================== -->
+        <div class="col-lg-6">
+            <div class="result-section-card animate-fade-up delay-2">
+                <h5><i class="bi bi-bicycle me-2 text-primary"></i>Exercise Suggestions</h5>
+                <ul class="result-list list-unstyled mt-3 mb-0">
+                    {% for item in result.exercise %}
+                    <li><i class="bi bi-arrow-right-short text-primary"></i>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== WHEN TO CONSULT A DOCTOR ==================== -->
+        <div class="col-lg-6">
+            <div class="result-section-card animate-fade-up">
+                <h5><i class="bi bi-hospital me-2 text-primary"></i>When to Consult a Doctor</h5>
+                <p class="text-muted mb-0 mt-3">{{ result.when_to_consult }}</p>
+            </div>
+        </div>
+
+        <!-- ==================== SPECIALIST + HOSPITAL ==================== -->
+        <div class="col-lg-6">
+            <div class="result-section-card specialist-card text-center d-flex flex-column justify-content-center animate-fade-up delay-1">
+                <i class="bi bi-person-badge-fill text-primary mb-2" style="font-size: 2.5rem;"></i>
+                <h5 class="mb-1">Recommended Specialist</h5>
+                <p class="text-muted mb-3">{{ result.specialist }}</p>
+                <a href="https://www.google.com/maps/search/{{ result.specialist | urlencode }}+near+me"
+                   target="_blank" rel="noopener noreferrer" class="btn btn-hospital">
+                    <i class="bi bi-geo-alt-fill me-2"></i>Find Nearby Hospital
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== DISCLAIMER ==================== -->
+    <div class="disclaimer-box mt-4 animate-fade-up">
+        <strong><i class="bi bi-exclamation-triangle-fill me-2"></i>Educational Disclaimer:</strong>
+        This application is developed for educational purposes only. It is not intended to
+        replace professional medical advice, diagnosis, or treatment. Please consult a certified
+        healthcare provider for any medical concerns.
+    </div>
+
+    <!-- ==================== ACTIONS ==================== -->
+    <div class="text-center mt-5">
+        <a href="{{ url_for('download_report') }}" class="btn btn-hospital px-4 py-2">
+            <i class="bi bi-file-earmark-pdf-fill me-2"></i>Download Medical Report
+        </a>
+        <a href="{{ url_for('predict') }}" class="btn btn-predict-nav px-4 py-2 ms-2">
+            <i class="bi bi-arrow-repeat me-2"></i>Predict Again
+        </a>
+        <a href="{{ url_for('home') }}" class="btn btn-outline-dark rounded-pill px-4 py-2 ms-2">
+            <i class="bi bi-house-door me-2"></i>Back to Home
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

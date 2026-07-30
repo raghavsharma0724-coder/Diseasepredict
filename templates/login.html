@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Login - MediPredict AI{% endblock %}
+
+{% block content %}
+
+<section class="hero-section" style="padding: 4.5rem 0 5rem;">
+    <div class="container text-center">
+        <span class="hero-badge mb-3"><i class="bi bi-box-arrow-in-right me-2"></i>Welcome Back</span>
+        <h1 class="hero-title mt-4 mb-3" style="font-size: 2.6rem;">Log In</h1>
+        <p class="hero-subtitle mx-auto">
+            Log in to make predictions and view your personal history and dashboard.
+        </p>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="result-section-card">
+                    <h5 class="fw-bold mb-4"><i class="bi bi-shield-lock me-2 text-primary"></i>Account Login</h5>
+                    <form method="POST" action="{{ url_for('login') }}">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Enter your username" required autofocus>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="btn btn-predict-submit w-100">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Log In
+                        </button>
+                    </form>
+                    <p class="text-center text-muted mt-4 mb-0">
+                        Don't have an account?
+                        <a href="{{ url_for('signup') }}" class="fw-semibold">Sign up here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

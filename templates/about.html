@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+
+{% block title %}About - MediPredict AI{% endblock %}
+
+{% block content %}
+
+<!-- ==================== HEADER ==================== -->
+<section class="hero-section" style="padding: 4.5rem 0 5rem;">
+    <div class="container text-center">
+        <span class="hero-badge mb-3"><i class="bi bi-info-circle me-2"></i>About The Project</span>
+        <h1 class="hero-title mt-4 mb-3" style="font-size: 2.6rem;">AI-Based Disease Prediction &<br>Healthcare Recommendation System</h1>
+        <p class="hero-subtitle mx-auto">
+            A final-year academic project demonstrating a complete, real-world Machine Learning
+            pipeline — from raw data to a deployed web application.
+        </p>
+    </div>
+</section>
+
+<!-- ==================== PROJECT OVERVIEW ==================== -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <span class="section-label">Project Overview</span>
+                <h2 class="section-title mt-2 mb-3">What This System Does</h2>
+                <p class="text-muted">
+                    MediPredict AI takes a user's age, gender, and selected symptoms as input,
+                    processes them through a trained classification model, and predicts the most
+                    probable disease. The result page then provides a confidence score, risk level,
+                    disease description, causes, precautions, lifestyle guidance, and a recommended
+                    medical specialist — with a one-click link to find nearby hospitals.
+                </p>
+                <p class="text-muted mb-0">
+                    The goal is to demonstrate practical application of supervised machine learning
+                    within a professional, deployable Flask web application.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="result-section-card">
+                    <h5 class="mb-3"><i class="bi bi-stack me-2 text-primary"></i>Tech Stack</h5>
+                    <div>
+                        <span class="tech-badge"><i class="bi bi-filetype-py me-1"></i>Python</span>
+                        <span class="tech-badge"><i class="bi bi-lightning-charge me-1"></i>Flask</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">NumPy</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">Pickle</span>
+                        <span class="tech-badge"><i class="bi bi-bootstrap me-1"></i>Bootstrap 5</span>
+                        <span class="tech-badge">HTML5 / CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ML WORKFLOW ==================== -->
+<section class="section-padding bg-surface">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-label">Machine Learning Pipeline</span>
+            <h2 class="section-title mt-2">How The Model Was Built</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="workflow-step">
+                    <i class="bi bi-database-fill-gear text-primary mb-2" style="font-size:1.8rem;"></i>
+                    <h6 class="fw-bold">1. Data Preparation</h6>
+                    <p class="text-muted small mb-0">
+                        A structured disease-symptom dataset ({{ metrics.num_symptoms }} symptoms,
+                        {{ metrics.num_diseases }} diseases) was cleaned, one-hot encoded for symptoms,
+                        and label-encoded for Gender and Disease.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="workflow-step">
+                    <i class="bi bi-diagram-3 text-primary mb-2" style="font-size:1.8rem;"></i>
+                    <h6 class="fw-bold">2. Train-Test Split</h6>
+                    <p class="text-muted small mb-0">
+                        Data was split 80/20 ({{ metrics.train_size }} training rows,
+                        {{ metrics.test_size }} testing rows) using stratified sampling to preserve
+                        class balance.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="workflow-step">
+                    <i class="bi bi-cpu text-primary mb-2" style="font-size:1.8rem;"></i>
+                    <h6 class="fw-bold">3. Model Training</h6>
+                    <p class="text-muted small mb-0">
+                        Three algorithms were trained and compared: Random Forest, Decision Tree,
+                        and Logistic Regression.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="workflow-step">
+                    <i class="bi bi-bar-chart-line text-primary mb-2" style="font-size:1.8rem;"></i>
+                    <h6 class="fw-bold">4. Evaluation</h6>
+                    <p class="text-muted small mb-0">
+                        Each model was scored on Accuracy, Precision, Recall, and F1 Score using the
+                        held-out test set.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="workflow-step">
+                    <i class="bi bi-trophy text-primary mb-2" style="font-size:1.8rem;"></i>
+                    <h6 class="fw-bold">5. Best Model Selection</h6>
+                    <p class="text-muted small mb-0">
+                        The model with the highest test accuracy was automatically selected and
+                        saved for deployment.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="workflow-step">
+                    <i class="bi bi-rocket-takeoff text-primary mb-2" style="font-size:1.8rem;"></i>
+                    <h6 class="fw-bold">6. Deployment</h6>
+                    <p class="text-muted small mb-0">
+                        The trained model was serialized with Pickle and integrated into a Flask
+                        web application for real-time predictions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== MODEL COMPARISON (REAL METRICS) ==================== -->
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-label">Model Evaluation</span>
+            <h2 class="section-title mt-2">Algorithm Comparison</h2>
+            <p class="section-subtitle mt-2 mx-auto">
+                These are the actual results from the last training run. The best-performing model,
+                <strong>{{ metrics.best_model }}</strong>, was automatically selected for deployment.
+            </p>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle bg-white shadow-sm rounded overflow-hidden">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Model</th>
+                        <th>Training Accuracy</th>
+                        <th>Testing Accuracy</th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1 Score</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for model_name, scores in metrics.results.items() %}
+                    <tr {% if model_name == metrics.best_model %}class="table-success"{% endif %}>
+                        <td class="fw-semibold">{{ model_name }}</td>
+                        <td>{{ (scores.train_accuracy * 100)|round(2) }}%</td>
+                        <td>{{ (scores.test_accuracy * 100)|round(2) }}%</td>
+                        <td>{{ (scores.precision * 100)|round(2) }}%</td>
+                        <td>{{ (scores.recall * 100)|round(2) }}%</td>
+                        <td>{{ (scores.f1_score * 100)|round(2) }}%</td>
+                        <td>
+                            {% if model_name == metrics.best_model %}
+                                <span class="badge bg-success"><i class="bi bi-star-fill me-1"></i>Best Model</span>
+                            {% else %}
+                                <span class="badge bg-secondary">Compared</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-5">
+            <h5 class="fw-bold mb-3">Confusion Matrix ({{ metrics.best_model }})</h5>
+            <img src="{{ url_for('static', filename='img/confusion_matrix.png') }}"
+                 alt="Confusion Matrix" class="img-fluid rounded shadow-sm" style="max-width: 700px;">
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DATASET INFO ==================== -->
+<section class="section-padding bg-surface">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-md-3 col-6">
+                <div class="feature-card">
+                    <h3 class="fw-bold text-primary">{{ metrics.num_diseases }}</h3>
+                    <p class="text-muted mb-0 small">Diseases Modeled</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="feature-card">
+                    <h3 class="fw-bold text-primary">{{ metrics.num_symptoms }}</h3>
+                    <p class="text-muted mb-0 small">Unique Symptoms</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="feature-card">
+                    <h3 class="fw-bold text-primary">{{ metrics.train_size + metrics.test_size }}</h3>
+                    <p class="text-muted mb-0 small">Total Records</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="feature-card">
+                    <h3 class="fw-bold text-primary">3</h3>
+                    <p class="text-muted mb-0 small">Models Compared</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

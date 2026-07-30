@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+
+{% block title %}MediPredict AI - Smart Disease Prediction & Healthcare Guidance{% endblock %}
+
+{% block content %}
+
+<!-- ==================== HERO SECTION ==================== -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 animate-fade-up">
+                <h1 class="hero-title mt-4 mb-4">
+                    Know What Your <br><span class="text-white">Symptoms Might Mean</span>
+                </h1>
+                <p class="hero-subtitle mb-4">
+                    MediPredict AI uses a trained machine learning model to analyze your symptoms,
+                    predict the most probable disease, and guide you toward the right specialist —
+                    all in seconds.
+                </p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="{{ url_for('predict') }}" class="btn btn-hero-primary">
+                        <i class="bi bi-clipboard2-pulse me-2"></i>Start Prediction
+                    </a>
+                    <a href="{{ url_for('about') }}" class="btn btn-hero-outline">
+                        <i class="bi bi-play-circle me-2"></i>Learn How It Works
+                    </a>
+                </div>
+
+                <div class="row mt-5 pt-3">
+                    <div class="col-4">
+                        <div class="hero-stat-number counter" data-count="22">0</div>
+                        <div class="hero-stat-label">Diseases Covered</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="hero-stat-number counter" data-count="55">0</div>
+                        <div class="hero-stat-label">Symptoms Tracked</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="hero-stat-number counter" data-count="98" data-suffix="%">0</div>
+                        <div class="hero-stat-label">Model Accuracy</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 text-center d-none d-lg-block animate-fade-up delay-2">
+                <i class="bi bi-heart-pulse-fill" style="font-size: 15rem; color: rgba(255,255,255,0.12);"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FEATURES SECTION ==================== -->
+<section class="section-padding bg-surface">
+    <div class="container text-center">
+        <span class="section-label">Why MediPredict AI</span>
+        <h2 class="section-title mt-2 mb-3">Smart, Simple, and Reliable</h2>
+        <p class="section-subtitle mb-5 mx-auto">
+            Built with a real machine learning pipeline — not a static quiz — to give you
+            meaningful, explainable predictions.
+        </p>
+
+        <div class="row g-4 text-start">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card animate-fade-up">
+                    <div class="feature-icon-box"><i class="bi bi-robot"></i></div>
+                    <h5 class="fw-bold mb-2">ML-Powered Prediction</h5>
+                    <p class="text-muted mb-0">
+                        Trained on a structured symptom-disease dataset using Random Forest,
+                        Decision Tree, and Logistic Regression — the best performer is chosen automatically.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card animate-fade-up delay-1">
+                    <div class="feature-icon-box"><i class="bi bi-clipboard2-check"></i></div>
+                    <h5 class="fw-bold mb-2">Detailed Health Report</h5>
+                    <p class="text-muted mb-0">
+                        Get the predicted disease, confidence score, risk level, causes,
+                        precautions, and lifestyle tips — not just a name.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card animate-fade-up delay-2">
+                    <div class="feature-icon-box"><i class="bi bi-person-badge"></i></div>
+                    <h5 class="fw-bold mb-2">Specialist Recommendation</h5>
+                    <p class="text-muted mb-0">
+                        Automatically suggests which type of doctor to consult —
+                        Cardiologist, Dermatologist, Neurologist, and more.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card animate-fade-up">
+                    <div class="feature-icon-box"><i class="bi bi-geo-alt"></i></div>
+                    <h5 class="fw-bold mb-2">Find Nearby Hospitals</h5>
+                    <p class="text-muted mb-0">
+                        One click opens Google Maps to show hospitals or clinics for your
+                        recommended specialist, near your current location.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card animate-fade-up delay-1">
+                    <div class="feature-icon-box"><i class="bi bi-search"></i></div>
+                    <h5 class="fw-bold mb-2">Searchable Symptoms</h5>
+                    <p class="text-muted mb-0">
+                        A fast, searchable checklist makes selecting from dozens of symptoms
+                        quick and frustration-free.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card animate-fade-up delay-2">
+                    <div class="feature-icon-box"><i class="bi bi-shield-check"></i></div>
+                    <h5 class="fw-bold mb-2">Transparent & Educational</h5>
+                    <p class="text-muted mb-0">
+                        Model accuracy, precision, and evaluation metrics are openly shown —
+                        built for learning, not blind trust.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== HOW IT WORKS ==================== -->
+<section class="section-padding">
+    <div class="container text-center">
+        <span class="section-label">Simple Process</span>
+        <h2 class="section-title mt-2 mb-5">How It Works</h2>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="workflow-step text-start">
+                    <div class="fw-bold text-primary mb-2" style="font-size:1.8rem;">01</div>
+                    <h6 class="fw-bold">Enter Your Details</h6>
+                    <p class="text-muted small mb-0">Provide your age, gender, and select the symptoms you're experiencing.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="workflow-step text-start">
+                    <div class="fw-bold text-primary mb-2" style="font-size:1.8rem;">02</div>
+                    <h6 class="fw-bold">AI Analyzes Symptoms</h6>
+                    <p class="text-muted small mb-0">Our trained ML model processes your inputs and predicts the most probable disease.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="workflow-step text-start">
+                    <div class="fw-bold text-primary mb-2" style="font-size:1.8rem;">03</div>
+                    <h6 class="fw-bold">Get Your Report</h6>
+                    <p class="text-muted small mb-0">View the diagnosis summary, risk level, precautions, and nearby specialist options.</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="{{ url_for('predict') }}" class="btn btn-predict-nav mt-5 px-5 py-3">
+            <i class="bi bi-arrow-right-circle me-2"></i>Try It Now
+        </a>
+    </div>
+</section>
+
+<!-- ==================== ABOUT PREVIEW ==================== -->
+<section class="section-padding bg-surface">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="section-label">About The Project</span>
+                <h2 class="section-title mt-2 mb-3">A Complete Machine Learning Workflow</h2>
+                <p class="text-muted mb-4">
+                    MediPredict AI was built as an educational final-year project demonstrating a real
+                    end-to-end ML pipeline: data preprocessing, model training and comparison,
+                    evaluation, and deployment through a Flask web application.
+                </p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Data cleaning & feature engineering</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Multi-model training & comparison</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Automatic best-model selection</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Full evaluation metrics & confusion matrix</li>
+                </ul>
+                <a href="{{ url_for('about') }}" class="btn btn-outline-dark rounded-pill px-4 mt-3">
+                    Read Full Details <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="bi bi-diagram-3-fill" style="font-size: 12rem; color: var(--primary-teal); opacity: 0.15;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FAQ SECTION ==================== -->
+<section class="section-padding bg-surface">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-label">Got Questions?</span>
+            <h2 class="section-title mt-2">Frequently Asked Questions</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="accordion" id="faqAccordion">
+
+                    <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Is this a real medical diagnosis?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                No. MediPredict AI is an educational tool that demonstrates a machine
+                                learning prediction pipeline. It is not a substitute for professional
+                                medical advice, diagnosis, or treatment.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq2">
+                                How accurate is the prediction model?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                The deployed model is automatically chosen as the best performer among
+                                Random Forest, Decision Tree, and Logistic Regression, evaluated on a
+                                held-out test set. Exact metrics are shown transparently on the About page.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq3">
+                                How many symptoms should I select?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                At least 2 symptoms are required, but selecting more of the symptoms
+                                you're actually experiencing generally improves prediction confidence.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Is my data stored anywhere?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Predictions are saved locally in a SQLite database on the server running
+                                the app, purely to power the Dashboard and History pages for this
+                                educational demo. No external services are involved.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-0 rounded-3 shadow-sm overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq5">
+                                Can I download a report of my result?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Yes — every result page includes a "Download Medical Report" button that
+                                generates a PDF summary with your details, prediction, and recommendations.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DISCLAIMER STRIP ==================== -->
+<section class="py-4" style="background: var(--primary-dark);">
+    <div class="container text-center">
+        <p class="text-light opacity-75 small mb-0">
+            <i class="bi bi-info-circle me-2"></i>
+            This tool is for educational purposes only and does not replace professional medical advice, diagnosis, or treatment.
+        </p>
+    </div>
+</section>
+
+{% endblock %}
